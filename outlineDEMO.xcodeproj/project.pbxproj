@@ -1,0 +1,265 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4CAB6F2D141AAD0000C1E63C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CAB6F2C141AAD0000C1E63C /* UIKit.framework */; };
+		4CAB6F2F141AAD0000C1E63C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CAB6F2E141AAD0000C1E63C /* Foundation.framework */; };
+		4CAB6F31141AAD0000C1E63C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CAB6F30141AAD0000C1E63C /* CoreGraphics.framework */; };
+		4CAB6F37141AAD0000C1E63C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4CAB6F35141AAD0000C1E63C /* InfoPlist.strings */; };
+		4CAB6F3A141AAD0000C1E63C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB6F39141AAD0000C1E63C /* main.m */; };
+		4CAB6F3D141AAD0000C1E63C /* outlineDEMOAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB6F3C141AAD0000C1E63C /* outlineDEMOAppDelegate.m */; };
+		4CAB6F40141AAD0000C1E63C /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CAB6F3E141AAD0000C1E63C /* MainWindow.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4CAB6F28141AAD0000C1E63C /* outlineDEMO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = outlineDEMO.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CAB6F2C141AAD0000C1E63C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		4CAB6F2E141AAD0000C1E63C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		4CAB6F30141AAD0000C1E63C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		4CAB6F34141AAD0000C1E63C /* outlineDEMO-Info.plist */ = {isa = PBXFileReference; path = "outlineDEMO-Info.plist"; sourceTree = "<group>"; };
+		4CAB6F36141AAD0000C1E63C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4CAB6F38141AAD0000C1E63C /* outlineDEMO-Prefix.pch */ = {isa = PBXFileReference; path = "outlineDEMO-Prefix.pch"; sourceTree = "<group>"; };
+		4CAB6F39141AAD0000C1E63C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4CAB6F3B141AAD0000C1E63C /* outlineDEMOAppDelegate.h */ = {isa = PBXFileReference; path = outlineDEMOAppDelegate.h; sourceTree = "<group>"; };
+		4CAB6F3C141AAD0000C1E63C /* outlineDEMOAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = outlineDEMOAppDelegate.m; sourceTree = "<group>"; };
+		4CAB6F3F141AAD0000C1E63C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4CAB6F25141AAD0000C1E63C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CAB6F2D141AAD0000C1E63C /* UIKit.framework in Frameworks */,
+				4CAB6F2F141AAD0000C1E63C /* Foundation.framework in Frameworks */,
+				4CAB6F31141AAD0000C1E63C /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4CAB6F1D141AAD0000C1E63C = {
+			isa = PBXGroup;
+			children = (
+				4CAB6F32141AAD0000C1E63C /* outlineDEMO */,
+				4CAB6F2B141AAD0000C1E63C /* Frameworks */,
+				4CAB6F29141AAD0000C1E63C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4CAB6F29141AAD0000C1E63C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4CAB6F28141AAD0000C1E63C /* outlineDEMO.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4CAB6F2B141AAD0000C1E63C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4CAB6F2C141AAD0000C1E63C /* UIKit.framework */,
+				4CAB6F2E141AAD0000C1E63C /* Foundation.framework */,
+				4CAB6F30141AAD0000C1E63C /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4CAB6F32141AAD0000C1E63C /* outlineDEMO */ = {
+			isa = PBXGroup;
+			children = (
+				4CAB6F3B141AAD0000C1E63C /* outlineDEMOAppDelegate.h */,
+				4CAB6F3C141AAD0000C1E63C /* outlineDEMOAppDelegate.m */,
+				4CAB6F3E141AAD0000C1E63C /* MainWindow.xib */,
+				4CAB6F33141AAD0000C1E63C /* Supporting Files */,
+			);
+			path = outlineDEMO;
+			sourceTree = "<group>";
+		};
+		4CAB6F33141AAD0000C1E63C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4CAB6F34141AAD0000C1E63C /* outlineDEMO-Info.plist */,
+				4CAB6F35141AAD0000C1E63C /* InfoPlist.strings */,
+				4CAB6F38141AAD0000C1E63C /* outlineDEMO-Prefix.pch */,
+				4CAB6F39141AAD0000C1E63C /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4CAB6F27141AAD0000C1E63C /* outlineDEMO */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4CAB6F43141AAD0000C1E63C /* Build configuration list for PBXNativeTarget "outlineDEMO" */;
+			buildPhases = (
+				4CAB6F24141AAD0000C1E63C /* Sources */,
+				4CAB6F25141AAD0000C1E63C /* Frameworks */,
+				4CAB6F26141AAD0000C1E63C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = outlineDEMO;
+			productName = outlineDEMO;
+			productReference = 4CAB6F28141AAD0000C1E63C /* outlineDEMO.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4CAB6F1F141AAD0000C1E63C /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 4CAB6F22141AAD0000C1E63C /* Build configuration list for PBXProject "outlineDEMO" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 4CAB6F1D141AAD0000C1E63C;
+			productRefGroup = 4CAB6F29141AAD0000C1E63C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4CAB6F27141AAD0000C1E63C /* outlineDEMO */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4CAB6F26141AAD0000C1E63C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CAB6F37141AAD0000C1E63C /* InfoPlist.strings in Resources */,
+				4CAB6F40141AAD0000C1E63C /* MainWindow.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4CAB6F24141AAD0000C1E63C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CAB6F3A141AAD0000C1E63C /* main.m in Sources */,
+				4CAB6F3D141AAD0000C1E63C /* outlineDEMOAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4CAB6F35141AAD0000C1E63C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4CAB6F36141AAD0000C1E63C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		4CAB6F3E141AAD0000C1E63C /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4CAB6F3F141AAD0000C1E63C /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4CAB6F41141AAD0000C1E63C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		4CAB6F42141AAD0000C1E63C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		4CAB6F44141AAD0000C1E63C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "outlineDEMO/outlineDEMO-Prefix.pch";
+				INFOPLIST_FILE = "outlineDEMO/outlineDEMO-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		4CAB6F45141AAD0000C1E63C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "outlineDEMO/outlineDEMO-Prefix.pch";
+				INFOPLIST_FILE = "outlineDEMO/outlineDEMO-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4CAB6F22141AAD0000C1E63C /* Build configuration list for PBXProject "outlineDEMO" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4CAB6F41141AAD0000C1E63C /* Debug */,
+				4CAB6F42141AAD0000C1E63C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4CAB6F43141AAD0000C1E63C /* Build configuration list for PBXNativeTarget "outlineDEMO" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4CAB6F44141AAD0000C1E63C /* Debug */,
+				4CAB6F45141AAD0000C1E63C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4CAB6F1F141AAD0000C1E63C /* Project object */;
+}
