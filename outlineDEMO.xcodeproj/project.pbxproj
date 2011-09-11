@@ -7,27 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C343F3C141BBBE000A12BD4 /* functions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C343F3B141BBBE000A12BD4 /* functions.m */; };
 		4CAB6F2D141AAD0000C1E63C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CAB6F2C141AAD0000C1E63C /* UIKit.framework */; };
 		4CAB6F2F141AAD0000C1E63C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CAB6F2E141AAD0000C1E63C /* Foundation.framework */; };
 		4CAB6F31141AAD0000C1E63C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CAB6F30141AAD0000C1E63C /* CoreGraphics.framework */; };
 		4CAB6F37141AAD0000C1E63C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4CAB6F35141AAD0000C1E63C /* InfoPlist.strings */; };
 		4CAB6F3A141AAD0000C1E63C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB6F39141AAD0000C1E63C /* main.m */; };
 		4CAB6F3D141AAD0000C1E63C /* outlineDEMOAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB6F3C141AAD0000C1E63C /* outlineDEMOAppDelegate.m */; };
-		4CAB6F40141AAD0000C1E63C /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CAB6F3E141AAD0000C1E63C /* MainWindow.xib */; };
+		4CAB6F48141AAD2A00C1E63C /* customrender.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CAB6F47141AAD2A00C1E63C /* customrender.m */; };
+		4CAB6F4B141AADFB00C1E63C /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CAB6F49141AADFB00C1E63C /* MainWindow.xib */; };
+		4CAB6F4D141AB1CC00C1E63C /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CAB6F4C141AB1CC00C1E63C /* Accelerate.framework */; };
+		4CAB6F4F141AB98600C1E63C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CAB6F4E141AB98600C1E63C /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C343F3A141BBBE000A12BD4 /* functions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = functions.h; sourceTree = "<group>"; };
+		4C343F3B141BBBE000A12BD4 /* functions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = functions.m; sourceTree = "<group>"; };
 		4CAB6F28141AAD0000C1E63C /* outlineDEMO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = outlineDEMO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CAB6F2C141AAD0000C1E63C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4CAB6F2E141AAD0000C1E63C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4CAB6F30141AAD0000C1E63C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		4CAB6F34141AAD0000C1E63C /* outlineDEMO-Info.plist */ = {isa = PBXFileReference; path = "outlineDEMO-Info.plist"; sourceTree = "<group>"; };
+		4CAB6F34141AAD0000C1E63C /* outlineDEMO-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "outlineDEMO-Info.plist"; sourceTree = "<group>"; };
 		4CAB6F36141AAD0000C1E63C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		4CAB6F38141AAD0000C1E63C /* outlineDEMO-Prefix.pch */ = {isa = PBXFileReference; path = "outlineDEMO-Prefix.pch"; sourceTree = "<group>"; };
+		4CAB6F38141AAD0000C1E63C /* outlineDEMO-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "outlineDEMO-Prefix.pch"; sourceTree = "<group>"; };
 		4CAB6F39141AAD0000C1E63C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		4CAB6F3B141AAD0000C1E63C /* outlineDEMOAppDelegate.h */ = {isa = PBXFileReference; path = outlineDEMOAppDelegate.h; sourceTree = "<group>"; };
+		4CAB6F3B141AAD0000C1E63C /* outlineDEMOAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = outlineDEMOAppDelegate.h; sourceTree = "<group>"; };
 		4CAB6F3C141AAD0000C1E63C /* outlineDEMOAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = outlineDEMOAppDelegate.m; sourceTree = "<group>"; };
-		4CAB6F3F141AAD0000C1E63C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		4CAB6F46141AAD2A00C1E63C /* customrender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = customrender.h; path = ../customrender.h; sourceTree = "<group>"; };
+		4CAB6F47141AAD2A00C1E63C /* customrender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = customrender.m; path = ../customrender.m; sourceTree = "<group>"; };
+		4CAB6F4A141AADFB00C1E63C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		4CAB6F4C141AB1CC00C1E63C /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		4CAB6F4E141AB98600C1E63C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +45,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CAB6F4F141AB98600C1E63C /* QuartzCore.framework in Frameworks */,
+				4CAB6F4D141AB1CC00C1E63C /* Accelerate.framework in Frameworks */,
 				4CAB6F2D141AAD0000C1E63C /* UIKit.framework in Frameworks */,
 				4CAB6F2F141AAD0000C1E63C /* Foundation.framework in Frameworks */,
 				4CAB6F31141AAD0000C1E63C /* CoreGraphics.framework in Frameworks */,
@@ -44,9 +56,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C343F39141BBB2600A12BD4 /* functions */ = {
+			isa = PBXGroup;
+			children = (
+				4C343F3A141BBBE000A12BD4 /* functions.h */,
+				4C343F3B141BBBE000A12BD4 /* functions.m */,
+			);
+			name = functions;
+			path = outlineDEMO;
+			sourceTree = "<group>";
+		};
 		4CAB6F1D141AAD0000C1E63C = {
 			isa = PBXGroup;
 			children = (
+				4C343F39141BBB2600A12BD4 /* functions */,
 				4CAB6F32141AAD0000C1E63C /* outlineDEMO */,
 				4CAB6F2B141AAD0000C1E63C /* Frameworks */,
 				4CAB6F29141AAD0000C1E63C /* Products */,
@@ -64,6 +87,8 @@
 		4CAB6F2B141AAD0000C1E63C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4CAB6F4E141AB98600C1E63C /* QuartzCore.framework */,
+				4CAB6F4C141AB1CC00C1E63C /* Accelerate.framework */,
 				4CAB6F2C141AAD0000C1E63C /* UIKit.framework */,
 				4CAB6F2E141AAD0000C1E63C /* Foundation.framework */,
 				4CAB6F30141AAD0000C1E63C /* CoreGraphics.framework */,
@@ -74,9 +99,11 @@
 		4CAB6F32141AAD0000C1E63C /* outlineDEMO */ = {
 			isa = PBXGroup;
 			children = (
+				4CAB6F46141AAD2A00C1E63C /* customrender.h */,
+				4CAB6F47141AAD2A00C1E63C /* customrender.m */,
 				4CAB6F3B141AAD0000C1E63C /* outlineDEMOAppDelegate.h */,
 				4CAB6F3C141AAD0000C1E63C /* outlineDEMOAppDelegate.m */,
-				4CAB6F3E141AAD0000C1E63C /* MainWindow.xib */,
+				4CAB6F49141AADFB00C1E63C /* MainWindow.xib */,
 				4CAB6F33141AAD0000C1E63C /* Supporting Files */,
 			);
 			path = outlineDEMO;
@@ -141,7 +168,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CAB6F37141AAD0000C1E63C /* InfoPlist.strings in Resources */,
-				4CAB6F40141AAD0000C1E63C /* MainWindow.xib in Resources */,
+				4CAB6F4B141AADFB00C1E63C /* MainWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,6 +181,8 @@
 			files = (
 				4CAB6F3A141AAD0000C1E63C /* main.m in Sources */,
 				4CAB6F3D141AAD0000C1E63C /* outlineDEMOAppDelegate.m in Sources */,
+				4CAB6F48141AAD2A00C1E63C /* customrender.m in Sources */,
+				4C343F3C141BBBE000A12BD4 /* functions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,10 +197,10 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		4CAB6F3E141AAD0000C1E63C /* MainWindow.xib */ = {
+		4CAB6F49141AADFB00C1E63C /* MainWindow.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4CAB6F3F141AAD0000C1E63C /* en */,
+				4CAB6F4A141AADFB00C1E63C /* en */,
 			);
 			name = MainWindow.xib;
 			sourceTree = "<group>";
@@ -258,6 +287,7 @@
 				4CAB6F45141AAD0000C1E63C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
