@@ -2,7 +2,7 @@ this demo showcases my method:
 
 +(CGMutablePathRef) newClosedPathWithWidth: (float) pw fromPath:(CGPathRef) path;
 
-The function created the outline of a path.
+The function creates the outline of a path.
 It accepts a CGpath (closed or open) and outputs a CGpath  that surround the given one. You can specify the width of the outline created.
 The mehtod uses Accelerate Frameworks for faster calculations.
 
