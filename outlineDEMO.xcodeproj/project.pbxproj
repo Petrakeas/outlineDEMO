@@ -33,8 +33,8 @@
 		4CAB6F39141AAD0000C1E63C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4CAB6F3B141AAD0000C1E63C /* outlineDEMOAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = outlineDEMOAppDelegate.h; sourceTree = "<group>"; };
 		4CAB6F3C141AAD0000C1E63C /* outlineDEMOAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = outlineDEMOAppDelegate.m; sourceTree = "<group>"; };
-		4CAB6F46141AAD2A00C1E63C /* customrender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = customrender.h; path = ../customrender.h; sourceTree = "<group>"; };
-		4CAB6F47141AAD2A00C1E63C /* customrender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = customrender.m; path = ../customrender.m; sourceTree = "<group>"; };
+		4CAB6F46141AAD2A00C1E63C /* customrender.h */ = {isa = PBXFileReference; fileEncoding = 4; path = customrender.h; sourceTree = "<group>"; };
+		4CAB6F47141AAD2A00C1E63C /* customrender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = customrender.m; sourceTree = "<group>"; };
 		4CAB6F4A141AADFB00C1E63C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
 		4CAB6F4C141AB1CC00C1E63C /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		4CAB6F4E141AB98600C1E63C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
