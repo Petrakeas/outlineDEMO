@@ -8,7 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class customrender;
+
 @interface outlineDEMOAppDelegate : NSObject <UIApplicationDelegate> {
+    
+    customrender* myview;
+
 
 }
 
