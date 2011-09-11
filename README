@@ -7,5 +7,5 @@ It accepts a CGpath (closed or open) and outputs a CGpath  that surround the giv
 The mehtod uses Accelerate Frameworks for faster calculations.
 
 In this demo 3 paths are used as inputs and 3 outline paths are created
-Core Animation is used to animate the width of the outline and the rotation of one of the input paths.
+Core Animation is used to animate custom propertis: the width of the outline and the rotation of one of the input paths.
 The 3 input paths and the 2 outline paths produces are renered using core graphics. The third uutline is used as the shadowpath of a CAlayer.
