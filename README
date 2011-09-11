@@ -1,4 +1,5 @@
 this demo showcases my method:
+
 +(CGMutablePathRef) newClosedPathWithWidth: (float) pw fromPath:(CGPathRef) path;
 
 The function created the outline of a path.
