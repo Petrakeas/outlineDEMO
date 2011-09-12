@@ -9,3 +9,5 @@ The mehtod uses Accelerate Framework for faster calculations.
 In this demo 3 paths are used as inputs and 3 outline paths are created
 Core Animation is used to animate custom propertis: the width of the outline and the rotation of one of the input paths.
 The 3 input paths and the 2 outline paths produced are renered using core graphics. The third outline is used as the shadowpath of a CAlayer.
+
+Running the demo: http://www.youtube.com/watch?v=oUh6EtC_wnY
