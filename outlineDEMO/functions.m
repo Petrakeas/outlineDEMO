@@ -116,23 +116,21 @@
     for(int i=0; i<n; i++){
         //NSLog(@"x:%f y:%f ux:%f uy:%f dx:%f dy:%f",px[i],py[i],cpUx[i],cpUy[i],cpDx[i],cpDy[i]);
         if (i==0) 
-            CGPathMoveToPoint(outline_path, nil, cpUx[0],cpUy[0]);
+            CGPathMoveToPoint(outline_path, nil, cpUx[i],cpUy[i]);
         else
             CGPathAddLineToPoint(outline_path, nil, cpUx[i], cpUy[i]);
     }
-    if(isClosed == YES && n>2)
-        CGPathCloseSubpath(outline_path);
     
     //add the points of the inner part of the outline
     if(isClosed == YES && n>2){
-        
-        for(int i=0; i<n; i++){
-            if (i==0) 
-                CGPathMoveToPoint(outline_path, nil, cpDx[0],cpDy[0]);
+        CGPathCloseSubpath(outline_path);
+        for(int i=n-1; i>=0; i--){//we add the points in reverse order so that if you fill this path it stays empty inside
+            if (i==n-1) 
+                CGPathMoveToPoint(outline_path, nil, cpDx[i],cpDy[i]);
             else
                 CGPathAddLineToPoint(outline_path, nil, cpDx[i], cpDy[i]);
         }
-    
+
     }
     else{
         for(int i=n-1; i>=0; i--)
@@ -140,7 +138,6 @@
     }
     CGPathCloseSubpath(outline_path);
     
-    //NSLog(@"%d",n);
     return outline_path;
 }
 
@@ -168,6 +165,12 @@ void savePathToArraysApplierFunc (void *info,const CGPathElement *element){
     
 }
 
+//void  printarray (void *info,const CGPathElement *element){
+//    
+//    NSLog(@"%d %f %f",element->type,element->points[0].x,element->points[0].y);
+//}
+
+
 //accepts a line (closed or open path) in the form of CGpath (this method is just a wrapper)
 //returns  a closed path (outline)  that surrounds the points of the given path 
 +(CGMutablePathRef) newClosedPathWithWidth: (float) pw fromPath:(CGPathRef) path 
@@ -179,9 +182,33 @@ void savePathToArraysApplierFunc (void *info,const CGPathElement *element){
     CGPathApply(path, &my_dataPointer, savePathToArraysApplierFunc);
     
     //get the outline path and return it
-    return [self newClosedPathWithWidth:pw fromPointsWith_x:my_dataPointer.indexx and_y:my_dataPointer.indexy withLength: my_dataPointer.numberOfPoints whichIsClosed: my_dataPointer.isClosed];
+     return [self newClosedPathWithWidth:pw fromPointsWith_x:my_dataPointer.indexx and_y:my_dataPointer.indexy withLength: my_dataPointer.numberOfPoints whichIsClosed: my_dataPointer.isClosed];
+    
 }
 
+//this function uses apple's implementation (CGContextReplacePathWithStrokedPath)
+//accepts a line (closed or open path) in the form of CGpath 
+//returns  a closed path (outline)  that surrounds the points of the given path 
++(CGPathRef) newPathFromStrokedPathWithWidth: (float) pw fromPath:(CGPathRef) path 
+{
+    //create an image context (we will not draw here but we'll just use some CGcontext functions on it)
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(1.0, 1.0),YES,1.0);
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+    
+    CGContextAddPath(ctx, path);
+    CGContextSetLineWidth(ctx, pw);
+    CGContextSetLineJoin(ctx, kCGLineJoinMiter);
+    
+    //create the outline with this CG function
+    CGContextReplacePathWithStrokedPath(ctx);
+    CGPathRef outline_path_unmutable =  CGContextCopyPath(ctx);
+
+    
+    UIGraphicsEndImageContext();
+    
+    return outline_path_unmutable;
+
+}
 
 
 

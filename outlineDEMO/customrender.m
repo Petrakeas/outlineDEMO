@@ -9,6 +9,7 @@
 #import "customrender.h"
 #import "functions.h"
 
+#define apple_implementation 0
 
 @implementation customrender
 
@@ -40,6 +41,9 @@
     CGPathAddLineToPoint(path3, nil, 100, 100);
     CGPathAddLineToPoint(path3, nil, 0 , 200);
     CGPathAddLineToPoint(path3, nil, 130, 200);
+    
+
+    
     
 }
 
@@ -109,7 +113,6 @@
 
 
     //Draw settings for the original paths
-    CGContextSetLineWidth(ctx, 2);
     CGContextSetStrokeColorWithColor(ctx, [UIColor blackColor].CGColor);
     CGContextSetLineWidth(ctx, 3);
     
@@ -120,18 +123,25 @@
     CGContextDrawPath(ctx,kCGPathStroke);
     
     //compute the outline of the original paths
+#if apple_implementation == 0
     CGMutablePathRef outline = [functions newClosedPathWithWidth:[linewidth floatValue] fromPath:path];
     CGMutablePathRef outline2 = [functions newClosedPathWithWidth:[linewidth floatValue] fromPath:uipath2.CGPath];
     CGMutablePathRef outline3 = [functions newClosedPathWithWidth:[linewidth floatValue] fromPath:uipath3.CGPath];
+#else   
+    CGPathRef outline = [functions newPathFromStrokedPathWithWidth:[linewidth floatValue] fromPath:path];
+    CGPathRef outline2 = [functions newPathFromStrokedPathWithWidth:[linewidth floatValue] fromPath:uipath2.CGPath];
+    CGPathRef outline3 = [functions newPathFromStrokedPathWithWidth:[linewidth floatValue] fromPath:uipath3.CGPath];
+#endif  
     
     //Draw settings for the outline paths
     CGContextSetLineWidth(ctx, 3);
+    CGContextSetFillColorWithColor(ctx, [UIColor redColor].CGColor);
     CGContextSetStrokeColorWithColor(ctx, [UIColor redColor].CGColor);
     
     //Draw the outline paths
     CGContextAddPath(ctx, outline);
     CGContextAddPath(ctx, outline2);
-    CGContextDrawPath(ctx,kCGPathStroke);
+    CGContextDrawPath(ctx,kCGPathFill);
     
     //draw outline3 as shadow
     self.shadowlayer.shadowPath = outline3;
