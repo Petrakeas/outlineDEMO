@@ -29,4 +29,4 @@ PS. I've also added a functon that uses apple's implementation for getting the o
 
 +(CGPathRef) newPathFromStrokedPathWithWidth: (float) pw fromPath:(CGPathRef) path;
 
-you can enable in the demo by setting  "#define apple_implementation 1" at "customrender.m"
+you can enable it in the demo by setting  "#define apple_implementation 1" at "customrender.m"
