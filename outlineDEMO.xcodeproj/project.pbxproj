@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4C343F3C141BBBE000A12BD4 /* functions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C343F3B141BBBE000A12BD4 /* functions.m */; };
-		4C91676A141CF7B20084A33B /* README in Resources */ = {isa = PBXBuildFile; fileRef = 4C916769141CF7B20084A33B /* README */; };
+		4C91676A141CF7B20084A33B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4C916769141CF7B20084A33B /* README.md */; };
 		4C916787141EABBD0084A33B /* mathexplane.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C916786141EABBD0084A33B /* mathexplane.png */; };
 		4CAB6F2D141AAD0000C1E63C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CAB6F2C141AAD0000C1E63C /* UIKit.framework */; };
 		4CAB6F2F141AAD0000C1E63C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CAB6F2E141AAD0000C1E63C /* Foundation.framework */; };
@@ -25,7 +25,7 @@
 /* Begin PBXFileReference section */
 		4C343F3A141BBBE000A12BD4 /* functions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = functions.h; sourceTree = "<group>"; };
 		4C343F3B141BBBE000A12BD4 /* functions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = functions.m; sourceTree = "<group>"; };
-		4C916769141CF7B20084A33B /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		4C916769141CF7B20084A33B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		4C916786141EABBD0084A33B /* mathexplane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mathexplane.png; sourceTree = "<group>"; };
 		4CAB6F28141AAD0000C1E63C /* outlineDEMO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = outlineDEMO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CAB6F2C141AAD0000C1E63C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -77,7 +77,7 @@
 				4CAB6F32141AAD0000C1E63C /* outlineDEMO */,
 				4CAB6F2B141AAD0000C1E63C /* Frameworks */,
 				4CAB6F29141AAD0000C1E63C /* Products */,
-				4C916769141CF7B20084A33B /* README */,
+				4C916769141CF7B20084A33B /* README.md */,
 				4C916786141EABBD0084A33B /* mathexplane.png */,
 			);
 			sourceTree = "<group>";
@@ -175,7 +175,7 @@
 			files = (
 				4CAB6F37141AAD0000C1E63C /* InfoPlist.strings in Resources */,
 				4CAB6F4B141AADFB00C1E63C /* MainWindow.xib in Resources */,
-				4C91676A141CF7B20084A33B /* README in Resources */,
+				4C91676A141CF7B20084A33B /* README.md in Resources */,
 				4C916787141EABBD0084A33B /* mathexplane.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
