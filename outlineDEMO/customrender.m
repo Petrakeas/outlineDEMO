@@ -141,7 +141,7 @@
     //Draw the outline paths
     CGContextAddPath(ctx, outline);
     CGContextAddPath(ctx, outline2);
-    CGContextDrawPath(ctx,kCGPathFill);
+    CGContextDrawPath(ctx,kCGPathStroke);
     
     //draw outline3 as shadow
     self.shadowlayer.shadowPath = outline3;
