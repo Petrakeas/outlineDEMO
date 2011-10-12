@@ -182,7 +182,7 @@ void savePathToArraysApplierFunc (void *info,const CGPathElement *element){
     CGPathApply(path, &my_dataPointer, savePathToArraysApplierFunc);
     
     //get the outline path and return it
-     return [self newClosedPathWithWidth:pw fromPointsWith_x:my_dataPointer.indexx and_y:my_dataPointer.indexy withLength: my_dataPointer.numberOfPoints whichIsClosed: my_dataPointer.isClosed];
+     return [functions newClosedPathWithWidth:pw fromPointsWith_x:my_dataPointer.indexx and_y:my_dataPointer.indexy withLength: my_dataPointer.numberOfPoints whichIsClosed: my_dataPointer.isClosed];
     
 }
 
