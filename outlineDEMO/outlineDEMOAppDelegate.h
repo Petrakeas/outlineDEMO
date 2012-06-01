@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@class customrender;
+@class DemoViewController;
 
 @interface outlineDEMOAppDelegate : NSObject <UIApplicationDelegate> {
     
-    customrender* myview;
+    DemoViewController* dvc;
 
 
 }

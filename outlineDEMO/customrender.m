@@ -122,15 +122,17 @@
     CGContextAddPath(ctx, uipath3.CGPath);
     CGContextDrawPath(ctx,kCGPathStroke);
     
-    //compute the outline of the original paths
+    //compute the outlines of the original paths
 #if apple_implementation == 0
-    CGMutablePathRef outline = [functions newClosedPathWithWidth:[linewidth floatValue] fromPath:path];
-    CGMutablePathRef outline2 = [functions newClosedPathWithWidth:[linewidth floatValue] fromPath:uipath2.CGPath];
-    CGMutablePathRef outline3 = [functions newClosedPathWithWidth:[linewidth floatValue] fromPath:uipath3.CGPath];
+    //the C function is used here
+    CGMutablePathRef outline = CreateOutlinePathFromPath( path,  [linewidth floatValue] , kCGLineJoinMiter);
+    //the UIBezierPath method is used here
+    UIBezierPath*   outline2 = [uipath2 outlinePathWithWidth:[linewidth floatValue] lineJoin:kCGLineJoinMiter];
+    UIBezierPath*   outline3 = [uipath3 outlinePathWithWidth:[linewidth floatValue] lineJoin:kCGLineJoinMiter];
 #else   
-    CGPathRef outline = [functions newPathFromStrokedPathWithWidth:[linewidth floatValue] fromPath:path];
-    CGPathRef outline2 = [functions newPathFromStrokedPathWithWidth:[linewidth floatValue] fromPath:uipath2.CGPath];
-    CGPathRef outline3 = [functions newPathFromStrokedPathWithWidth:[linewidth floatValue] fromPath:uipath3.CGPath];
+    CGPathRef outline = CreateOutlinePathFromStrokedPath( path,  [linewidth floatValue], kCGLineJoinMiter, kCGLineCapSquare );
+    UIBezierPath* outline2 = [uipath2 strokedOutlinePathWithWidth:[linewidth floatValue] lineJoin:kCGLineJoinMiter lineCap:kCGLineCapSquare];
+    UIBezierPath* outline3 = [uipath3 strokedOutlinePathWithWidth:[linewidth floatValue] lineJoin:kCGLineJoinMiter lineCap:kCGLineCapSquare];
 #endif  
     
     //Draw settings for the outline paths
@@ -140,15 +142,13 @@
     
     //Draw the outline paths
     CGContextAddPath(ctx, outline);
-    CGContextAddPath(ctx, outline2);
+    CGContextAddPath(ctx, outline2.CGPath);
     CGContextDrawPath(ctx,kCGPathStroke);
     
     //draw outline3 as shadow
-    self.shadowlayer.shadowPath = outline3;
+    self.shadowlayer.shadowPath = outline3.CGPath;
     
     CGPathRelease(outline);
-    CGPathRelease(outline2);
-    CGPathRelease(outline3);
 
 }
 

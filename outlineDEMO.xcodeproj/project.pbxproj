@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4C343F3C141BBBE000A12BD4 /* functions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C343F3B141BBBE000A12BD4 /* functions.m */; };
+		4C8E13401575640900F136F3 /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8E133F1575640900F136F3 /* DemoViewController.m */; };
 		4C91676A141CF7B20084A33B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4C916769141CF7B20084A33B /* README.md */; };
 		4C916787141EABBD0084A33B /* mathexplane.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C916786141EABBD0084A33B /* mathexplane.png */; };
 		4CAB6F2D141AAD0000C1E63C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CAB6F2C141AAD0000C1E63C /* UIKit.framework */; };
@@ -25,6 +26,8 @@
 /* Begin PBXFileReference section */
 		4C343F3A141BBBE000A12BD4 /* functions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = functions.h; sourceTree = "<group>"; };
 		4C343F3B141BBBE000A12BD4 /* functions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = functions.m; sourceTree = "<group>"; };
+		4C8E133E1575640900F136F3 /* DemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoViewController.h; sourceTree = "<group>"; };
+		4C8E133F1575640900F136F3 /* DemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoViewController.m; sourceTree = "<group>"; };
 		4C916769141CF7B20084A33B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		4C916786141EABBD0084A33B /* mathexplane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mathexplane.png; sourceTree = "<group>"; };
 		4CAB6F28141AAD0000C1E63C /* outlineDEMO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = outlineDEMO.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,6 +110,8 @@
 			children = (
 				4CAB6F46141AAD2A00C1E63C /* customrender.h */,
 				4CAB6F47141AAD2A00C1E63C /* customrender.m */,
+				4C8E133E1575640900F136F3 /* DemoViewController.h */,
+				4C8E133F1575640900F136F3 /* DemoViewController.m */,
 				4CAB6F3B141AAD0000C1E63C /* outlineDEMOAppDelegate.h */,
 				4CAB6F3C141AAD0000C1E63C /* outlineDEMOAppDelegate.m */,
 				4CAB6F49141AADFB00C1E63C /* MainWindow.xib */,
@@ -151,6 +156,9 @@
 /* Begin PBXProject section */
 		4CAB6F1F141AAD0000C1E63C /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+			};
 			buildConfigurationList = 4CAB6F22141AAD0000C1E63C /* Build configuration list for PBXProject "outlineDEMO" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
@@ -191,6 +199,7 @@
 				4CAB6F3D141AAD0000C1E63C /* outlineDEMOAppDelegate.m in Sources */,
 				4CAB6F48141AAD2A00C1E63C /* customrender.m in Sources */,
 				4C343F3C141BBBE000A12BD4 /* functions.m in Sources */,
+				4C8E13401575640900F136F3 /* DemoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,6 +265,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "outlineDEMO/outlineDEMO-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "outlineDEMO/outlineDEMO-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -269,6 +279,7 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "outlineDEMO/outlineDEMO-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "outlineDEMO/outlineDEMO-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALIDATE_PRODUCT = YES;
