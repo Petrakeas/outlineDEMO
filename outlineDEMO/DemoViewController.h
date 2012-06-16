@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+@class  customrender;
 
-@interface DemoViewController : UIViewController
+@interface DemoViewController : UIViewController{
+    customrender* myCustomRenderLayer;
+}
 
 @end

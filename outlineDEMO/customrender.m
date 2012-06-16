@@ -7,27 +7,27 @@
 //
 
 #import "customrender.h"
-#import "functions.h"
+#import "CGutilities.h"
 
-#define apple_implementation 0
+//#define _appleImplementation 1
 
 @implementation customrender
 
-@synthesize linewidth,angle,shadowlayer;//this is the property that we will animate
+@synthesize linewidth,angle,shadowlayer, tension;//this is the property that we will animate
 
 //these are the variables that need to be set again for the presentation version of the CAlayer
 -(void)createPaths
 {
    
-    //create an open path
- 
-    path = CGPathCreateMutable();
-    CGPathMoveToPoint(path, nil, 30, 130);
-    CGPathAddLineToPoint(path, nil, 70, 30);
-    CGPathAddLineToPoint(path, nil, 120, 200);
-    CGPathAddLineToPoint(path, nil, 200, 120);
+    //create an open path (up z)
+    path1 = CGPathCreateMutable();
+    CGPathMoveToPoint(path1, nil, 30, 130);
+    CGPathAddLineToPoint(path1, nil, 70, 30);
+    CGPathAddLineToPoint(path1, nil, 120, 200);
+    CGPathAddLineToPoint(path1, nil, 200, 120);
+
     
-    //create a closed path
+    //create a closed path (rectangle)
     path2 = CGPathCreateMutable();
     CGPathMoveToPoint(path2, nil, -50, 50);
     CGPathAddLineToPoint(path2, nil, 50, 50);
@@ -35,15 +35,22 @@
     CGPathAddLineToPoint(path2, nil, -50, -50);
     CGPathCloseSubpath(path2);
     
-    //create an open path
+    //create an open path (down Z)
     path3 = CGPathCreateMutable();
     CGPathMoveToPoint(path3, nil, 0, 100);
     CGPathAddLineToPoint(path3, nil, 100, 100);
     CGPathAddLineToPoint(path3, nil, 0 , 200);
     CGPathAddLineToPoint(path3, nil, 130, 200);
     
+    //create a closed path (triangle)  
+    CGAffineTransform trans = CGAffineTransformMakeTranslation(-50, -100 +  50.0*tanf(M_PI * 30.0/180.0));
+    path5 = CGPathCreateMutable();
+    CGPathMoveToPoint(path5, &trans, 0, 100);
+    CGPathAddLineToPoint(path5, &trans, 100, 100);
+    CGPathAddLineToPoint(path5, &trans, 50, 100 - 100.0*sinf(M_PI * 60.0/180.0));
+    CGPathCloseSubpath(path5);
 
-    
+
     
 }
 
@@ -85,7 +92,8 @@
         self.shadowlayer = modelLayer.shadowlayer;
         self.linewidth = modelLayer.linewidth;
         self.angle = modelLayer.angle;
-        
+        self.tension = modelLayer.tension;
+
         [self createPaths];        
     }
     
@@ -98,57 +106,85 @@
 //we overide drawInContext to perfom our custom rendering
 - (void)drawInContext:(CGContextRef)ctx
 {
-    //NSLog(@"RENDERING %f", [linewidth floatValue]);
+    float _tension = self.tension;
     
-   //rotate and translate path2
-    CGAffineTransform transform = CGAffineTransformConcat(CGAffineTransformMakeRotation([self.angle floatValue]), CGAffineTransformMakeTranslation(100, 300)); 
+    //create one more path
+    float _angle = [self.angle floatValue];
+    CGMutablePathRef path4 = CGPathCreateMutable();
+    CGPathMoveToPoint(path4, nil, 150, 100 + 40 * sinf(_angle));
+    CGPathAddLineToPoint(path4, nil, 200, 100 + 40 * sinf(_angle +     M_PI_2));
+    CGPathAddLineToPoint(path4, nil, 250, 100 + 40 * sinf(_angle + 2 * M_PI_2));
+    CGPathAddLineToPoint(path4, nil, 300, 100 + 40 * sinf(_angle + 3 * M_PI_2 ));
+    
+    
+    
+    //convert CGPaths to UIBezierPaths for convenience
+    UIBezierPath* uipath1 = [UIBezierPath bezierPathWithCGPath:path1];
     UIBezierPath* uipath2 = [UIBezierPath bezierPathWithCGPath:path2];
+    UIBezierPath* uipath3 = [UIBezierPath bezierPathWithCGPath:path3];
+    UIBezierPath* uipath4 = [UIBezierPath bezierPathWithCGPath:path4];
+    UIBezierPath* uipath5 = [UIBezierPath bezierPathWithCGPath:path5];
+    CGPathRelease(path4);
+    
+    
+    //make 1st and 4th path "smoothed"
+    UIBezierPath* smoothedPath1 = [uipath1 smoothedBezierPathWithTension:_tension];
+    UIBezierPath* smoothedPath4 = [uipath4 smoothedBezierPathWithTension:2*_tension];
+    
+    //rotate and translate path2
+    CGAffineTransform transform = CGAffineTransformConcat(CGAffineTransformMakeRotation([self.angle floatValue]), CGAffineTransformMakeTranslation(100, 300)); 
     [uipath2 applyTransform:transform];
     
     //translate path3
     transform = CGAffineTransformMakeTranslation(150, 250);
-    UIBezierPath* uipath3 = [UIBezierPath bezierPathWithCGPath:path3];
     [uipath3 applyTransform:transform];
     
+    //rotate and translate path5
+    CGAffineTransform transform2 = CGAffineTransformConcat(CGAffineTransformMakeRotation([self.angle floatValue]), CGAffineTransformMakeTranslation(250, 200)); 
+    [uipath5 applyTransform:transform2];
 
 
-    //Draw settings for the original paths
+    
+    // Draw  the paths
     CGContextSetStrokeColorWithColor(ctx, [UIColor blackColor].CGColor);
     CGContextSetLineWidth(ctx, 3);
     
-    // Draw  the paths
-    CGContextAddPath(ctx, path);
+    CGContextAddPath(ctx, smoothedPath1.CGPath);
     CGContextAddPath(ctx, uipath2.CGPath);
     CGContextAddPath(ctx, uipath3.CGPath);
     CGContextDrawPath(ctx,kCGPathStroke);
     
+    CGContextSetStrokeColorWithColor(ctx, [UIColor blueColor].CGColor);
+    CGContextSetLineWidth(ctx, 2);
+    
+    CGContextAddPath(ctx, smoothedPath4.CGPath);
+    CGContextAddPath(ctx, [uipath5 smoothedBezierPathWithTension:_tension].CGPath);
+    CGContextDrawPath(ctx,kCGPathStroke);
+    
+    
     //compute the outlines of the original paths
-#if apple_implementation == 0
-    //the C function is used here
-    CGMutablePathRef outline = CreateOutlinePathFromPath( path,  [linewidth floatValue] , kCGLineJoinMiter);
-    //the UIBezierPath method is used here
+    #ifdef _appleImplementation
+    UIBezierPath*   outline1 = [smoothedPath1 strokedOutlinePathWithWidth:[linewidth floatValue] lineJoin:kCGLineJoinMiter lineCap:kCGLineCapRound];
+    #else
+    UIBezierPath*   outline1 = [[uipath1 outlinePathWithWidth:[linewidth floatValue] lineJoin:kCGLineJoinMiter] smoothedBezierPathWithTension:_tension];
+    #endif
+
     UIBezierPath*   outline2 = [uipath2 outlinePathWithWidth:[linewidth floatValue] lineJoin:kCGLineJoinMiter];
     UIBezierPath*   outline3 = [uipath3 outlinePathWithWidth:[linewidth floatValue] lineJoin:kCGLineJoinMiter];
-#else   
-    CGPathRef outline = CreateOutlinePathFromStrokedPath( path,  [linewidth floatValue], kCGLineJoinMiter, kCGLineCapSquare );
-    UIBezierPath* outline2 = [uipath2 strokedOutlinePathWithWidth:[linewidth floatValue] lineJoin:kCGLineJoinMiter lineCap:kCGLineCapSquare];
-    UIBezierPath* outline3 = [uipath3 strokedOutlinePathWithWidth:[linewidth floatValue] lineJoin:kCGLineJoinMiter lineCap:kCGLineCapSquare];
-#endif  
+ 
     
-    //Draw settings for the outline paths
+    //Draw the outline paths
     CGContextSetLineWidth(ctx, 3);
     CGContextSetFillColorWithColor(ctx, [UIColor redColor].CGColor);
     CGContextSetStrokeColorWithColor(ctx, [UIColor redColor].CGColor);
     
-    //Draw the outline paths
-    CGContextAddPath(ctx, outline);
+    CGContextAddPath(ctx, outline1.CGPath);
     CGContextAddPath(ctx, outline2.CGPath);
     CGContextDrawPath(ctx,kCGPathStroke);
     
-    //draw outline3 as shadow
+    //Draw outline3 as shadow
     self.shadowlayer.shadowPath = outline3.CGPath;
     
-    CGPathRelease(outline);
 
 }
 
@@ -164,9 +200,10 @@
 
 - (void)dealloc
 {
-    CGPathRelease(path);
+    CGPathRelease(path1);
     CGPathRelease(path2);
     CGPathRelease(path3);
+    CGPathRelease(path5);
     self.linewidth = nil;
     self.angle = nil;
     self.shadowlayer = nil;

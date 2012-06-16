@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4C343F3C141BBBE000A12BD4 /* functions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C343F3B141BBBE000A12BD4 /* functions.m */; };
+		4C252118158CA2B500A5638F /* CGutilitiesBezier.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C252117158CA2B500A5638F /* CGutilitiesBezier.m */; };
+		4C343F3C141BBBE000A12BD4 /* CGutilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C343F3B141BBBE000A12BD4 /* CGutilities.m */; };
 		4C8E13401575640900F136F3 /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8E133F1575640900F136F3 /* DemoViewController.m */; };
 		4C91676A141CF7B20084A33B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4C916769141CF7B20084A33B /* README.md */; };
 		4C916787141EABBD0084A33B /* mathexplane.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C916786141EABBD0084A33B /* mathexplane.png */; };
@@ -24,8 +25,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4C343F3A141BBBE000A12BD4 /* functions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = functions.h; sourceTree = "<group>"; };
-		4C343F3B141BBBE000A12BD4 /* functions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = functions.m; sourceTree = "<group>"; };
+		4C252117158CA2B500A5638F /* CGutilitiesBezier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGutilitiesBezier.m; sourceTree = "<group>"; };
+		4C343F3A141BBBE000A12BD4 /* CGutilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGutilities.h; sourceTree = "<group>"; };
+		4C343F3B141BBBE000A12BD4 /* CGutilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGutilities.m; sourceTree = "<group>"; };
 		4C8E133E1575640900F136F3 /* DemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoViewController.h; sourceTree = "<group>"; };
 		4C8E133F1575640900F136F3 /* DemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoViewController.m; sourceTree = "<group>"; };
 		4C916769141CF7B20084A33B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
@@ -66,8 +68,9 @@
 		4C343F39141BBB2600A12BD4 /* functions */ = {
 			isa = PBXGroup;
 			children = (
-				4C343F3A141BBBE000A12BD4 /* functions.h */,
-				4C343F3B141BBBE000A12BD4 /* functions.m */,
+				4C343F3A141BBBE000A12BD4 /* CGutilities.h */,
+				4C343F3B141BBBE000A12BD4 /* CGutilities.m */,
+				4C252117158CA2B500A5638F /* CGutilitiesBezier.m */,
 			);
 			name = functions;
 			path = outlineDEMO;
@@ -198,8 +201,9 @@
 				4CAB6F3A141AAD0000C1E63C /* main.m in Sources */,
 				4CAB6F3D141AAD0000C1E63C /* outlineDEMOAppDelegate.m in Sources */,
 				4CAB6F48141AAD2A00C1E63C /* customrender.m in Sources */,
-				4C343F3C141BBBE000A12BD4 /* functions.m in Sources */,
+				4C343F3C141BBBE000A12BD4 /* CGutilities.m in Sources */,
 				4C8E13401575640900F136F3 /* DemoViewController.m in Sources */,
+				4C252118158CA2B500A5638F /* CGutilitiesBezier.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

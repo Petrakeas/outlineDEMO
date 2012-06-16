@@ -8,6 +8,7 @@
 
 #import "DemoViewController.h"
 #import "customrender.h"
+//#define forceFasterFps 1
 
 @interface DemoViewController ()
 
@@ -20,8 +21,23 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        
+        //catch notifications to stop and resume animations
+        [[NSNotificationCenter defaultCenter] addObserver:self 
+                                                 selector:@selector(appBecameActive:) 
+                                                     name: UIApplicationDidBecomeActiveNotification 
+                                                   object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self 
+                                                 selector:@selector(appResignedActive:) 
+                                                     name: UIApplicationWillResignActiveNotification 
+                                                   object:nil];
     }
     return self;
+}
+
+-(void) updateTention: (UISlider*) slider{
+    myCustomRenderLayer.tension = slider.value;
 }
 
 - (void)loadView{
@@ -38,9 +54,38 @@
     //    myShadowLayer.shouldRasterize = YES;
     [containerView.layer addSublayer:myShadowLayer];
     
-    customrender* myCustomRenderLayer = [[[customrender alloc]init]autorelease];
+    UISlider* slider = [[[UISlider alloc]initWithFrame: CGRectMake(200, 20, 90, 40)] autorelease];
+    slider.value = 0.2;
+    [slider addTarget:self action:@selector(updateTention:) forControlEvents:UIControlEventValueChanged];
+    
+    myCustomRenderLayer = [[[customrender alloc]init]autorelease];
     myCustomRenderLayer.shadowlayer = myShadowLayer;
+    myCustomRenderLayer.tension = slider.value;
     [containerView.layer addSublayer:myCustomRenderLayer];
+    
+    
+    [containerView addSubview:slider];
+    
+
+
+#ifdef forceFasterFps
+    [NSTimer scheduledTimerWithTimeInterval:1.0/60.0 target:self selector:@selector(ForceRedraw:) userInfo:myCustomRenderLayer repeats:YES];
+#endif
+    
+    self.view = containerView;
+}
+
+
+-(void)ForceRedraw:(NSTimer*) _timer 
+{
+    customrender* renderInstance = (customrender*) _timer.userInfo;
+
+    [renderInstance setNeedsDisplay];
+}
+
+- (void) appBecameActive: (NSNotification*) notification
+{
+    [myCustomRenderLayer removeAllAnimations];
     
     //create an animation for the width of the outline in myview
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"linewidth"];
@@ -62,16 +107,13 @@
     animation2.repeatCount = HUGE_VALF;
     [myCustomRenderLayer addAnimation:animation2 forKey:@"animateangle"];
 
-    //[NSTimer scheduledTimerWithTimeInterval:1.0/60.0 target:self selector:@selector(ForceRedraw:) userInfo:myCustomRenderLayer repeats:YES];
-    
-    self.view = containerView;
 }
--(void)ForceRedraw:(NSTimer*) _timer {
-    customrender* renderInstance = (customrender*) _timer.userInfo;
 
-    [renderInstance setNeedsDisplay];
-    
+- (void) appResignedActive: (NSNotification*) notification
+{
+    [myCustomRenderLayer removeAllAnimations];
 }
+
 
 - (void)viewDidLoad
 {
