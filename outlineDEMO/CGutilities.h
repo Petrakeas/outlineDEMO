@@ -29,6 +29,7 @@
 #define _max_points  512 //the maximum number of points the input path can have. I decided not to allocate memory dynamically for performance reasons
 
 
+#pragma  mark - outline
 ///////////////////////////////Outline Creation///////////////////////////
 
 /*
@@ -76,7 +77,7 @@ CGMutablePathRef CreateOutlinePath(  float* pixelx , float* pixely, int n , bool
 @end
 
 
-
+#pragma mark - smoothed bezier
 ///////////////////////////////Bezier Curve creation///////////////////////////
 
 /*
@@ -111,6 +112,7 @@ struct dataPointer
     bool isClosed;
 };
 
+#pragma mark - utilities
 //////////////////////////Utilities////////////////////
 
 /*prints the values of a CGPath on console
