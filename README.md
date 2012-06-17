@@ -8,6 +8,8 @@ It accepts a CGpath (closed or open) and outputs a CGpath  that surrounds the gi
 
 The mehtod uses Accelerate Framework for faster calculations.
 
+I use it in Soundbeam app : http://www.evilwindowdog.com/soundbeam
+
 ***
 
 In this demo 3 paths are used as inputs and 3 outline paths are created
