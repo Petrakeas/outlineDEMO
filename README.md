@@ -1,34 +1,34 @@
-this demo showcases my method:
+this demo showcases my functions that can:
+1)calculate the outline of a given path (open or closed)
+2)create a smoothed version of a path using bezier curves
 
-+(CGMutablePathRef) newClosedPathWithWidth: (float) pw fromPath:(CGPathRef) path;
+ The functions come in 3  flavours:
+  1)UIbezier methods
+  2)C functions that accept a CGPath as input (read about the limitations below)
+  3)C functions that accept array of floats as input
 
-The function creates the outline of a path.
+I have also added a helper funtion that can print a CGPath in the console (usefull for debugging).
 
-It accepts a CGpath (closed or open) and outputs a CGpath  that surrounds the given one. You can specify the width of the outline created.
+To use the functions include the header file "CGutilities.h" and use the soruce files: "CGutilities.m", "CGutilitiesBezier.m"
 
-The mehtod uses Accelerate Framework for faster calculations.
-
-I use it in Soundbeam app : http://www.evilwindowdog.com/soundbeam
+These functions are used in Soundbeam app : http://www.evilwindowdog.com/soundbeam
 
 ***
 
-In this demo 3 paths are used as inputs and 3 outline paths are created
+In this demo 5 input paths are used. Some of them have their outline calculated and rendered in red color. Some are "smoothened" and then rendered.
+
+The user can alter the tension of the control points of the bezier curves.
 
 Core Animation is used to animate custom propertis: the width of the outline and the angle of the rotation of one of the input paths.
 
-The 3 input paths and the 2 outline paths produced are rendered using core graphics. The third outline is used as the shadowpath of a CAlayer.
+Video running the demo: http://www.youtube.com/watch?v=iOHvIiryfaQ
 
-Video running the demo: http://www.youtube.com/watch?v=oUh6EtC_wnY
+Older video: http://www.youtube.com/watch?v=oUh6EtC_wnY
 
 My blog's post: http://www.wiggler.gr/2011/09/12/function-to-create-a-paths-outline/
 
 The way the outline is calculated: http://stackoverflow.com/questions/5641769/how-to-draw-an-outline-around-any-line/7394129#7394129
-
+The math behind control points calculations: http://scaledinnovation.com/analytics/splines/aboutSplines.html
 
 ***
-
-PS. I've also added a functon that uses apple's implementation for getting the oultine path:
-
-+(CGPathRef) newPathFromStrokedPathWithWidth: (float) pw fromPath:(CGPathRef) path;
-
-you can enable it in the demo by setting  "#define apple_implementation 1" at "customrender.m"
+The functions have some limitations. So read CGutilities.h carefully
