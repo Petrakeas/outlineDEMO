@@ -32,6 +32,6 @@
 @property (nonatomic,retain) NSNumber* linewidth;//this is the width for the outlines of the paths
 @property (nonatomic,retain) NSNumber* angle;//this angle is used to rotate path2
 @property (nonatomic,retain) CALayer* shadowlayer;//this is an external CALayer used for shadows
-@property (nonatomic) float tension;
+@property (nonatomic) CGFloat tension;
 
 @end

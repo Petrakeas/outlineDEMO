@@ -12,7 +12,7 @@
 
 #pragma mark - smooth bezier funtions
 
-void calculateBezierControlPoints( float* cpx, float* cpy, float* p_x, float* p_y, bool isClosed, int n, float t)
+void calculateBezierControlPoints( CGFloat* cpx, CGFloat* cpy, CGFloat* p_x, CGFloat* p_y, bool isClosed, int n, CGFloat t)
 {/*calculates the control points needed to draw a bezier curve passing smoothly through the given points
   if the path is open:
     returns (n-2)*2+2 = 2*n-2 control points that can be used with the orignal points (point_x) (point_y)
@@ -23,31 +23,31 @@ void calculateBezierControlPoints( float* cpx, float* cpy, float* p_x, float* p_
   more info on the math part here: http://scaledinnovation.com/analytics/splines/aboutSplines.html
   */
     
-    float len1,len2;
-    float f1,f2;
+    CGFloat len1,len2;
+    CGFloat f1,f2;
     int k;
     
-    float px[_max_points+2];
-    float py[_max_points+2];
-    float diff_x[_max_points];
-    float diff_y[_max_points];
-    float lengths[_max_points];
+    CGFloat px[_max_points+2];
+    CGFloat py[_max_points+2];
+    CGFloat diff_x[_max_points];
+    CGFloat diff_y[_max_points];
+    CGFloat lengths[_max_points];
     
-    //copy the input values to our float arrays
+    //copy the input values to our CGFloat arrays
     if(isClosed == YES && n>2){
         //if the input path is closed, shift the input array by one and add as first element the last of the input and as last element the first of the input
-        memcpy(px+1, p_x, sizeof(float)*n);
+        memcpy(px+1, p_x, sizeof(CGFloat)*n);
         px[0] = p_x[n-1];
         px[n+1] = p_x[0];
-        memcpy(py+1, p_y, sizeof(float)*n);
+        memcpy(py+1, p_y, sizeof(CGFloat)*n);
         py[0] = p_y[n-1];
         py[n+1] = p_y[0];
         n+=2;//we will compute 2 more elements
         k=-2;
     }
     else{
-        memcpy(px, p_x, sizeof(float)*n);
-        memcpy(py, p_y, sizeof(float)*n);
+        memcpy(px, p_x, sizeof(CGFloat)*n);
+        memcpy(py, p_y, sizeof(CGFloat)*n);
         k=0;
         
         //the first and last control point we be calculated with a heuristic way because for proper calculation we would need a point before the first one and after the last one
@@ -61,9 +61,9 @@ void calculateBezierControlPoints( float* cpx, float* cpy, float* p_x, float* p_
    
     
     //calculate the distances between the n points in batch mode (the non-batch mode is the commented  out  lines of len1,len2)
-    vDSP_vsub(px,1,px+1,1,diff_x,1,n-1);//first caclulate the differences of x
-    vDSP_vsub(py,1,py+1,1,diff_y,1,n-1);//then calculate the difference of y
-    vDSP_vdist(diff_x, 1, diff_y, 1, lengths, 1, n-1);//take the square root of the sum of the squares of the differences
+    CG_vsub(px,1,px+1,1,diff_x,1,n-1);//first caclulate the differences of x
+    CG_vsub(py,1,py+1,1,diff_y,1,n-1);//then calculate the difference of y
+    CG_vdist(diff_x, 1, diff_y, 1, lengths, 1, n-1);//take the square root of the sum of the squares of the differences
     
     for(int i=1 + (int)isClosed ; i<n-1; i++){//for all the points except the first and last one
         
@@ -100,17 +100,17 @@ void calculateBezierControlPoints( float* cpx, float* cpy, float* p_x, float* p_
 }
 
 
-CGMutablePathRef CreateSmoothedBezierPathFromPath( CGPathRef path, float tention)
+CGMutablePathRef CreateSmoothedBezierPathFromPath( CGPathRef path, CGFloat tention)
 {
-    //convert path to 2 arrays of floats
+    //convert path to 2 arrays of CGFloats
     struct dataPointer my_dataPointer; //this struct will hold the 2 indexes of the CGpath
     my_dataPointer.numberOfPoints = 0;
     my_dataPointer.isClosed = NO;
     CGPathApply(path, &my_dataPointer, savePathToArraysApplierFunc);
     
     //the arrays where the control points will be stored
-    float controlPoints_x[2*_max_points];
-    float controlPoints_y[2*_max_points];
+    CGFloat controlPoints_x[2*_max_points];
+    CGFloat controlPoints_y[2*_max_points];
     
     calculateBezierControlPoints(  controlPoints_x, controlPoints_y, my_dataPointer.indexx , my_dataPointer.indexy, my_dataPointer.isClosed, my_dataPointer.numberOfPoints, tention);
     
@@ -139,7 +139,7 @@ CGMutablePathRef CreateSmoothedBezierPathFromPath( CGPathRef path, float tention
 @implementation UIBezierPath (smoothBezier)
 
 
--(UIBezierPath*) smoothedBezierPathWithTension: (float) tension{
+-(UIBezierPath*) smoothedBezierPathWithTension: (CGFloat) tension{
     
     CGMutablePathRef smoothedCGPath = CreateSmoothedBezierPathFromPath(self.CGPath, tension);
     UIBezierPath* smoothedBezierPath = [UIBezierPath bezierPathWithCGPath:smoothedCGPath];
@@ -148,7 +148,7 @@ CGMutablePathRef CreateSmoothedBezierPathFromPath( CGPathRef path, float tention
     return smoothedBezierPath;
 }
 
-+(UIBezierPath*) smoothedBezierOutlinePathWithCGPath:(CGPathRef)path tension:(float) tension{
++(UIBezierPath*) smoothedBezierOutlinePathWithCGPath:(CGPathRef)path tension:(CGFloat) tension{
     
     CGMutablePathRef smoothedCGPath = CreateSmoothedBezierPathFromPath(path, tension);
     UIBezierPath* smoothedBezierPath = [UIBezierPath bezierPathWithCGPath:smoothedCGPath];

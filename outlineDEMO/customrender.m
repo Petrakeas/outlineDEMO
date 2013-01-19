@@ -11,6 +11,12 @@
 
 //#define _appleImplementation 1
 
+#if CGFLOAT_IS_DOUBLE
+# define CGFloatValue	doubleValue
+#else
+# define CGFloatValue	floatValue
+#endif
+
 @implementation customrender
 
 @synthesize linewidth,angle,shadowlayer, tension;//this is the property that we will animate
@@ -106,10 +112,10 @@
 //we overide drawInContext to perfom our custom rendering
 - (void)drawInContext:(CGContextRef)ctx
 {
-    float _tension = self.tension;
+    CGFloat _tension = self.tension;
     
     //create one more path
-    float _angle = [self.angle floatValue];
+    CGFloat _angle = [self.angle CGFloatValue];
     CGMutablePathRef path4 = CGPathCreateMutable();
     CGPathMoveToPoint(path4, nil, 150, 100 + 40 * sinf(_angle));
     CGPathAddLineToPoint(path4, nil, 200, 100 + 40 * sinf(_angle +     M_PI_2));
@@ -132,7 +138,7 @@
     UIBezierPath* smoothedPath4 = [uipath4 smoothedBezierPathWithTension:2*_tension];
     
     //rotate and translate path2
-    CGAffineTransform transform = CGAffineTransformConcat(CGAffineTransformMakeRotation([self.angle floatValue]), CGAffineTransformMakeTranslation(100, 300)); 
+    CGAffineTransform transform = CGAffineTransformConcat(CGAffineTransformMakeRotation([self.angle CGFloatValue]), CGAffineTransformMakeTranslation(100, 300));
     [uipath2 applyTransform:transform];
     
     //translate path3
@@ -140,7 +146,7 @@
     [uipath3 applyTransform:transform];
     
     //rotate and translate path5
-    CGAffineTransform transform2 = CGAffineTransformConcat(CGAffineTransformMakeRotation([self.angle floatValue]), CGAffineTransformMakeTranslation(250, 200)); 
+    CGAffineTransform transform2 = CGAffineTransformConcat(CGAffineTransformMakeRotation([self.angle CGFloatValue]), CGAffineTransformMakeTranslation(250, 200));
     [uipath5 applyTransform:transform2];
 
 
@@ -164,13 +170,13 @@
     
     //compute the outlines of the original paths
     #ifdef _appleImplementation
-    UIBezierPath*   outline1 = [smoothedPath1 strokedOutlinePathWithWidth:[linewidth floatValue] lineJoin:kCGLineJoinMiter lineCap:kCGLineCapRound];
+    UIBezierPath*   outline1 = [smoothedPath1 strokedOutlinePathWithWidth:[linewidth CGFloatValue] lineJoin:kCGLineJoinMiter lineCap:kCGLineCapRound];
     #else
-    UIBezierPath*   outline1 = [[uipath1 outlinePathWithWidth:[linewidth floatValue] lineJoin:kCGLineJoinMiter] smoothedBezierPathWithTension:_tension];
+    UIBezierPath*   outline1 = [[uipath1 outlinePathWithWidth:[linewidth CGFloatValue] lineJoin:kCGLineJoinMiter] smoothedBezierPathWithTension:_tension];
     #endif
 
-    UIBezierPath*   outline2 = [uipath2 outlinePathWithWidth:[linewidth floatValue] lineJoin:kCGLineJoinMiter];
-    UIBezierPath*   outline3 = [uipath3 outlinePathWithWidth:[linewidth floatValue] lineJoin:kCGLineJoinMiter];
+    UIBezierPath*   outline2 = [uipath2 outlinePathWithWidth:[linewidth CGFloatValue] lineJoin:kCGLineJoinMiter];
+    UIBezierPath*   outline3 = [uipath3 outlinePathWithWidth:[linewidth CGFloatValue] lineJoin:kCGLineJoinMiter];
  
     
     //Draw the outline paths
